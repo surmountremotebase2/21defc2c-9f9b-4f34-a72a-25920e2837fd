@@ -23,8 +23,13 @@ class TradingStrategy(Strategy):
          try: rsi_dict[ticker] = RSI(ticker, data, 14)[-1]
          except: rsi_dict[ticker] = 1
 
-      allocation_dict = {i: rsi_dict[i]/(sum(rsi_dict.values())+10) for i in self.assets}
+      # Invert the RSI values for allocation calculation
+      inverted_rsi_dict = {i: 110 - rsi_dict[i] for i in self.assets}
+      
+      # Calculate allocations based on inverted RSI values
+      allocation_dict = {i: inverted_rsi_dict[i]/(sum(inverted_rsi_dict.values())+10) for i in self.assets}
+      
       for key in allocation_dict:
-         if abs(allocation_dict[key]-holdings.get(key, 0))>0.02:
-            return TargetAllocation(allocation_dict)
+         if abs(allocation_dict[key]-holdings.get(key, 0)) > 0.02:
+               return TargetAllocation(allocation_dict)
       return None
