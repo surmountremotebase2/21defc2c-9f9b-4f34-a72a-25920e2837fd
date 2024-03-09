@@ -21,7 +21,7 @@ def SMAVol(ticker, data, length):
 
 class TradingStrategy(Strategy):
     def __init__(self):
-        self.tickers = ["VIRT"]
+        self.tickers = ["TSLA"]
         self.data_list = []
 
     @property
@@ -37,9 +37,9 @@ class TradingStrategy(Strategy):
         return self.data_list
 
     def run(self, data):
-        vols = [i["VIRT"]["volume"] for i in data["ohlcv"]]
-        smavols = SMAVol("VIRT", data["ohlcv"], 40)
-        smavols2 = SMAVol("VIRT", data["ohlcv"], 10)
+        vols = [i["TSLA"]["volume"] for i in data["ohlcv"]]
+        smavols = SMAVol("TSLA", data["ohlcv"], 40)
+        smavols2 = SMAVol("TSLA", data["ohlcv"], 10)
 
         if len(vols)==0:
                 return TargetAllocation({})
@@ -48,4 +48,4 @@ class TradingStrategy(Strategy):
                 out = smavols2[-1]/smavols[-1]-1
         else: out = 0
 
-        return TargetAllocation({"VIRT": min(0.9, (out*10)**(0.5))})
+        return TargetAllocation({"TSLA": min(0.9, (out*10)**(0.5))})
