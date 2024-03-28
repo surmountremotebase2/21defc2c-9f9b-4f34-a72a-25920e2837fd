@@ -47,9 +47,9 @@ class TradingStrategy(Strategy):
         return self.data_list
 
     def run(self, data):
-        cci_fast = CCI("TSLA", data["ohlcv"], 10)
-        cci_medi = CCI("TSLA", data["ohlcv"], 20)
-        cci_slow = CCI("TSLA", data["ohlcv"], 40)
+        cci_fast = CCI("TSLA", data["ohlcv"], 26)
+        cci_medi = CCI("TSLA", data["ohlcv"], 127)
+        cci_slow = CCI("TSLA", data["ohlcv"], 132)
 
         # Equivalent to warm-up period, if all values not ready just show allocation (aka do nothing)
         if len(cci_fast) == 0 or len(cci_medi) == 0 or len(cci_slow) == 0 :
