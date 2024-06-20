@@ -3,9 +3,7 @@ from surmount.logging import log
 from surmount.data import Asset, InstitutionalOwnership
 import pandas_ta as ta
 import pandas as pd
-import indicator_cci
-
-
+from indicator_cci import CCI
 
 class TradingStrategy(Strategy):
     def __init__(self):
