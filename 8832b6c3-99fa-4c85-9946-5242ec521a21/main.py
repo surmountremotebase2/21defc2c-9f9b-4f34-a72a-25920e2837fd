@@ -1,11 +1,9 @@
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.logging import log
 from surmount.data import Asset, InstitutionalOwnership
-import pandas_ta as ta
-import pandas as pd
 from indicator_cci import CCI
 
-self.ticker = "TSLA"
+ticker = "TSLA"
 
 class TradingStrategy(Strategy):
     def __init__(self, ticker):
