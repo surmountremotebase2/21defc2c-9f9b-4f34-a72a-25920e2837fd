@@ -5,6 +5,8 @@ import pandas_ta as ta
 import pandas as pd
 from indicator_cci import CCI
 
+ticker = "TSLA"
+
 class TradingStrategy(Strategy):
     def __init__(self, ticker):
         self.ticker = ticker
