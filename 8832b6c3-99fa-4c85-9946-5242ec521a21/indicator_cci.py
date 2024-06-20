@@ -1,4 +1,6 @@
-
+from surmount.base_class import Strategy, TargetAllocation
+from surmount.logging import log
+from surmount.data import Asset, InstitutionalOwnership
 
 def CCI(ticker, data, length):
     '''Calculate the Commodity Channel Index (CCI) for the given ticker.
