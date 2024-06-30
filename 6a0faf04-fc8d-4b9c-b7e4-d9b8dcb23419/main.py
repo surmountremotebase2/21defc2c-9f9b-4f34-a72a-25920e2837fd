@@ -36,7 +36,7 @@ def crossovers(ticker, data, length1, length2):
 
 class TradingStrategy(Strategy):
     def __init__(self, ticker):
-        self.ticker = ticker
+        self.ticker = "SPY"
         self.data_list = []
 
     @property
@@ -65,6 +65,3 @@ class TradingStrategy(Strategy):
             allocation = 0  # No position
 
         return TargetAllocation({self.ticker: allocation})
-
-
-strategy = TradingStrategy(ticker="SPY")
