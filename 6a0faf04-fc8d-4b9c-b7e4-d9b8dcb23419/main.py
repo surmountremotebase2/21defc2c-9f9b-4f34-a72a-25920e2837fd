@@ -45,7 +45,7 @@ class TradingStrategy(Strategy):
 
     @property
     def assets(self):
-        return [self.ticker]
+        return [self.tickers]
 
     @property
     def data(self):
@@ -64,4 +64,4 @@ class TradingStrategy(Strategy):
         else:
             allocation = 0  # No position
 
-        return TargetAllocation({self.ticker: allocation})
+        return TargetAllocation({self.tickers: allocation})
