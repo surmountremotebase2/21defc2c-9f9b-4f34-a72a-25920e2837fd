@@ -1,7 +1,6 @@
 from surmount.base_class import Strategy, TargetAllocation
 from surmount.logging import log
 from surmount.data import Asset, InstitutionalOwnership
-from indicator_crossovers import crossovers
 import pandas as pd
 import pandas_ta as ta
 
