@@ -4,7 +4,7 @@ from surmount.data import Asset, InstitutionalOwnership
 import pandas as pd
 import pandas_ta as ta
 
-tickers = ["SPY"]
+tickers = ["QQQ"]
 
 def crossovers(ticker, data, length1, length2):
     '''Calculate the crossover between two indicators for the given ticker.
@@ -36,7 +36,7 @@ def crossovers(ticker, data, length1, length2):
 
 class TradingStrategy(Strategy):
     def __init__(self):
-        self.tickers = ["SPY"]
+        self.tickers = ["QQQ"]
         self.data_list = []
 
     @property
