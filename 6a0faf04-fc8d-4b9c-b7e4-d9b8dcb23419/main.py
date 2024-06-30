@@ -34,7 +34,7 @@ def crossovers(ticker, data, length1, length2):
         return None
     return indicator1.tolist(), indicator2.tolist()
 
-class TradingStrategy(Strategy, ticker):
+class TradingStrategy(Strategy):
     def __init__(self, ticker):
         self.ticker = ticker
         self.data_list = []
@@ -55,7 +55,7 @@ class TradingStrategy(Strategy, ticker):
         crossover_values = crossovers(self.ticker, data["ohlcv"], 20, 14)
 
         # Equivalent to warm-up period, if all values not ready just show allocation (aka do nothing)
-        if len(crossovers) == 0:
+        if crossover_values is None or len(crossover_values[0]) == 0 or len(crossover_values[1]) == 0:
             return TargetAllocation({})
 
         # Example CCI-based strategy: Enter when crossover_ema crosses above crossover_sma
