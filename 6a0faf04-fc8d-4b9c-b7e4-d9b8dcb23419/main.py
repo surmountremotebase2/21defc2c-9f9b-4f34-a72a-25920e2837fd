@@ -34,7 +34,7 @@ def crossovers(ticker, data, length1, length2):
         return None
     return indicator1.tolist(), indicator2.tolist()
 
-class TradingStrategy(Strategy):
+class TradingStrategy(Strategy, ticker):
     def __init__(self, ticker):
         self.ticker = ticker
         self.data_list = []
