@@ -4,7 +4,7 @@ from surmount.data import Asset, InstitutionalOwnership
 import pandas as pd
 import pandas_ta as ta
 
-ticker = "SPY"
+tickers = ["SPY"]
 
 def crossovers(ticker, data, length1, length2):
     '''Calculate the crossover between two indicators for the given ticker.
@@ -35,8 +35,8 @@ def crossovers(ticker, data, length1, length2):
     return indicator1.tolist(), indicator2.tolist()
 
 class TradingStrategy(Strategy):
-    def __init__(self, ticker):
-        self.ticker = "SPY"
+    def __init__(self):
+        self.tickers = ["SPY"]
         self.data_list = []
 
     @property
@@ -52,7 +52,7 @@ class TradingStrategy(Strategy):
         return self.data_list
 
     def run(self, data):
-        crossover_values = crossovers(self.ticker, data["ohlcv"], 20, 14)
+        crossover_values = crossovers(self.tickers, data["ohlcv"], 20, 14)
 
         # Equivalent to warm-up period, if all values not ready just show allocation (aka do nothing)
         if crossover_values is None or len(crossover_values[0]) == 0 or len(crossover_values[1]) == 0:
