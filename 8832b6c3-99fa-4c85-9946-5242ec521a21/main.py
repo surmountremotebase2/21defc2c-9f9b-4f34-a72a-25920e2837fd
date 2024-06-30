@@ -6,8 +6,8 @@ from indicator_cci import CCI
 ticker = "TSLA"
 
 class TradingStrategy(Strategy):
-    def __init__(self, ticker):
-        self.ticker = ticker
+    def __init__(self):
+        self.ticker = "TSLA"
         self.data_list = []
 
     @property
