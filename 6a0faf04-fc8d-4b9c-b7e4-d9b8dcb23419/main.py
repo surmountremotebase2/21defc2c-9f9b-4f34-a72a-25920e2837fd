@@ -65,3 +65,6 @@ class TradingStrategy(Strategy):
             allocation = 0  # No position
 
         return TargetAllocation({self.ticker: allocation})
+
+
+strategy = TradingStrategy(ticker="SPY")
