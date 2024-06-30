@@ -23,7 +23,7 @@ class TradingStrategy(Strategy):
         return self.data_list
 
     def run(self, data):
-        crossover_sma = crossovers(self.ticker, data["ohlcv"], 20)
+        crossovers = crossovers(self.ticker, data["ohlcv"], 20)
         crossover_ema = crossovers(self.ticker, data["ohlcv"], 14)
 
         # Equivalent to warm-up period, if all values not ready just show allocation (aka do nothing)
