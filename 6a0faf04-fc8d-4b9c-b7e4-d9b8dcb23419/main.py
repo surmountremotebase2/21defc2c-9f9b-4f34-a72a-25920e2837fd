@@ -5,8 +5,7 @@ import os
 
 log(str(os.getcwd()))
 log(os.getcwd())
-info(os.getcwd())
-info(str(os.getcwd()))
+
 
 class TradingStrategy(Strategy):
 
@@ -26,8 +25,6 @@ class TradingStrategy(Strategy):
             
             log(str(os.getcwd()))
             log(os.getcwd())
-            info(os.getcwd())
-            info(str(os.getcwd()))
 
             log(str(v_shape))
             if v_shape:
